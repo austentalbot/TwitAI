@@ -3,5 +3,7 @@
   "description": "wit app tutorial",
   "version": "0.0.1",
   "private": true,
-  "dependencies": { "futures": ">=2.1.0" }
+  "dependencies": {
+    "futures": "^2.3.3"
+  }
 }
