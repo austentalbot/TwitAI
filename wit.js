@@ -11,8 +11,8 @@ var request_wit = function(user_text) {
         // make sure to replace it with your own
         // the Accept header allows to request a specific version of the API
         // make sure to replace the YYYYMMDD with the version date you wanted
-        headers: {'Authorization': 'Bearer ' + process.env.ACCESS_TOKEN,
-                  'Accept': 'application/vnd.wit.20140620'}
+        headers: {'Authorization': 'Bearer ' + credentials.ACCESS_TOKEN,
+                  'Accept': 'application/vnd.wit.20140728'}
     };
 
     https.request(options, function(res) {
