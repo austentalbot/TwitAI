@@ -6,6 +6,8 @@ var wit = require('./wit.js');
 var credentials = require('./credentials.js');
 var twitter = require('twit');
 
+var lastId='478543830392639488';
+
 var T = new twitter({
   consumer_key: credentials.twitter_consumer_key,
   consumer_secret: credentials.twitter_consumer_secret,
@@ -13,13 +15,14 @@ var T = new twitter({
   access_token_secret: credentials.twitter_access_token_secret
 });
 
-T.get('statuses/mentions_timeline', function(err, data, response) {
+T.get('statuses/mentions_timeline', {since_id: lastId}, function(err, data, response) {
   console.log(data);
-});
+  for (var i=0; i<data.length; i++) {
+    //do stuff to text with witAI
+    console.log(data[i].text, data[i].id_str);
+  }
 
-// T.get('/statuses/mentions_timeline.json', {count: 10}, function(data) {
-//   console.log(data);
-// });
+});
 
 app.get('/*', function(req, res){
   res.send('Hello world, TwitAI');
