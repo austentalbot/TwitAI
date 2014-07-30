@@ -4,7 +4,7 @@ var app = express();
 var port = process.env.PORT || 8766;
 var wit = require('./wit.js');
 var credentials = require('./credentials.js');
-var twitter = require('twitter');
+var twitter = require('twit');
 
 var T = new twitter({
   consumer_key: credentials.twitter_consumer_key,
@@ -13,12 +13,13 @@ var T = new twitter({
   access_token_secret: credentials.twitter_access_token_secret
 });
 
-T.get('/statuses/mentions_timeline.json', {count: 10}, function(err, data) {
-  if (err) {
-    console.log(err);
-  }
+T.get('statuses/mentions_timeline', function(err, data, response) {
   console.log(data);
 });
+
+// T.get('/statuses/mentions_timeline.json', {count: 10}, function(data) {
+//   console.log(data);
+// });
 
 app.get('/*', function(req, res){
   res.send('Hello world, TwitAI');
