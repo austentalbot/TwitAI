@@ -1,7 +1,6 @@
 var http = require('http');
 var wit = require('./wit');
 var url = require('url');
-var Twit = require('twit');
 
 http.createServer(function (req, res) {
     if (req.url === '/favicon.ico') {
