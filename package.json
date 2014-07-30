@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "futures": "^2.3.3"
+    "express": "^4.7.2",
+    "futures": "^2.3.3",
+    "twit": "^1.1.18"
   }
 }

@@ -2,11 +2,11 @@ var https = require('https');
 var Future = require('futures').future;
 var credentials = require('./credentials.js');
 
-var request_wit = function(user_text) {
+var request_wit = function(userText) {
     var future = Future.create();
     var options = {
         host: 'api.wit.ai',
-        path: '/message?q=' + encodeURIComponent(user_text),
+        path: '/message?q=' + encodeURIComponent(userText),
         // the Authorization header allows you to access your Wit.AI account
         // make sure to replace it with your own
         // the Accept header allows to request a specific version of the API
@@ -30,6 +30,6 @@ var request_wit = function(user_text) {
     }).end();
 
     return future;
-}
+};
 
 module.exports.request_wit = request_wit;
